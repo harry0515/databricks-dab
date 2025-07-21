@@ -1,0 +1,13 @@
+# The main pipeline for test_proj
+resources:
+  pipelines:
+    test_proj_pipeline:
+      name: test_proj_pipeline
+      catalog: dbw_dev
+      schema: test_proj_${bundle.target}
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src

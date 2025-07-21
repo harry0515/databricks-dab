@@ -1,0 +1,12 @@
+{
+  "data_security_mode": "DATA_SECURITY_MODE_DEDICATED",
+  "single_user_name": "p09k91a0227@outlook.com",
+  "cluster_name": "Prashanth Maragoni's Cluster 2025-07-17 11:53:19",
+  "policy_id": "001B7EAD6C4135B6",
+  "kind": "CLASSIC_PREVIEW",
+  "spark_version": "16.4.x-scala2.13",
+  "node_type_id": "Standard_DS3_v2",
+  "autotermination_minutes": 10,
+  "use_ml_runtime": true,
+  "is_single_node": true
+}

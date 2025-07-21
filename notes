@@ -1,0 +1,51 @@
+brew install databricks
+
+Azure : create 3 resources groups (dev, test, prod) with 3 databricks workspaces.
+right installation : check databricks cluster config that you are using install correct java (java 17) and python(3.12)
+
+dbw-dev: https://adb-637421694437244.4.azuredatabricks.net/      
+dbw-test:  https://adb-1618942780427569.9.azuredatabricks.net/
+dbw-prod: https://adb-1984397967437335.15.azuredatabricks.net/
+
+databricks configure --host https://adb-637421694437244.4.azuredatabricks.net/  --profile DEFAULT
+
+Install databricks CLI and vscode databricks extension
+
+list all profiles :   databricks auth profiles
+
+intialize project: databricks bundle init (default profile)
+
+path to .databrickscfg:   databricks auth describe --profile TEST
+
+create cluster:    databricks clusters create --json @create-compute.json --profile DEFAULT
+
+list clusters in profile:    databricks clusters list --profile DEFAULT
+
+Terminate clusters(stops runningcluster):   databricks clusters delete <cluster_id> --profile DEFAULT 
+
+delete cluster:    databricks cluster permanent-delete <cluster_id> --profil DEFAULT
+
+create databricks bundle:     databricks bundle init <template path> --profile DEFAULT
+
+bundle validate:        databricks bundle validate (go inside project you need databricks.yml)
+
+bundle deploy:    Databricks bundle deploy --target(or -t) test(prod/default) no need to    specify profile tag in databricks.yml our env are mentioned
+
+bundle destroy:  databricks bundle destroy -t <env>
+
+Note: databricks cli will only deployu new changes it compares the last changes in .databricks folder. If you manually delete the folders inside .bundle folder in workspace and try to deploy again the same bundle again it won't reflect any changes to solve this problem delete 
+.databricks folder in local and deploy again
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
